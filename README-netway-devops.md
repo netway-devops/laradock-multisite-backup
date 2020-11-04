@@ -6,7 +6,7 @@ git clone https://github.com/netway-devops/laradock-multisite.git
 
 mkdir -p ~/gitworks/space/rvsitebuilder
 cd ~/gitworks/space/rvsitebuilder
-git clone -b develop https://github.com/netway-devops/rvsitebuilder-space develop
+git clone -b develop --recurse-submodules https://github.com/netway-devops/rvsitebuilder-space develop
 
 cd develop
 git submodule foreach "git checkout develop"
@@ -23,11 +23,18 @@ composer install
 composer app-install-dev
 ~~~
 
-devops note
+## devops note
 
 ~~~
+First build structure
+
 cd ~/gitwork/space/rvsitebuilder/develop
 git submodule add -b develop https://gitlab.rvglobalsoft.netway.pro/rvglobalsoft/rvsitebuildercms rvsitebuildercms
 
 git submodule add -b develop  https://gitlab.rvglobalsoft.netway.pro/rvglobalsoft/cdn.git cdn
+
+
+Optional Docker Compose
+docker-compose -f docker-compose.yml logs -f apache2
+docker-compose down
 ~~~
