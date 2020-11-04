@@ -2,11 +2,7 @@
   "name": "Laradock",
   "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "laradock",
-  "runServices": [
-    "nginx",
-    "postgres",
-    "pgadmin"
-  ],
+  "runServices": ["nginx", "postgres", "pgadmin"],
   "service": "workspace",
   "workspaceFolder": "/var/www",
   "shutdownAction": "stopCompose",
