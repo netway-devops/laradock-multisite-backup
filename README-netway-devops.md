@@ -11,9 +11,12 @@ git clone -b develop --recurse-submodules https://github.com/netway-devops/rvsit
 cd develop
 git submodule foreach "git checkout develop"
 
-open folder ~/gitworks/space/rvsitebuilder/develop
+cd ~/gitworks/laradock-multisite
+./local-ssl-certs-gen.sh
 
-open workspace file rvsitebuilder.code-workspace
+vscode open folder ~/gitworks/space/rvsitebuilder/develop
+
+vscode open workspace file rvsitebuilder.code-workspace
 
 cd /var/www/rvsitebuildercms/rvsitebuilder.develop
 cp .env.dev .env
