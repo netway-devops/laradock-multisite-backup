@@ -5,6 +5,11 @@ networks:
     driver: ${NETWORKS_DRIVER}
   backend:
     driver: ${NETWORKS_DRIVER}
+  laradocknetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: ${LARADOCK_SUBNET}
 
 volumes:
   mysql:
@@ -276,13 +281,19 @@ services:
 
       - "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms:${SB7MASTER_APP_PATH_CONTAINER}"
       - "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms:${SB7DEVELOP_APP_PATH_CONTAINER}"
-
+      - "./dashboard.php:/var/www/html/index.php"
       #- "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7MASTER_PUBLIC_PATH_CONTAINER}"
       #- "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7DEVELOP_PUBLIC_PATH_CONTAINER}"
     expose:
       - "9000"
     extra_hosts:
       - "dockerhost:${DOCKER_HOST_IP}"
+      - "rvsitebuilder.develop:${APACHE_CONTAINER_IP}"
+      - "cdn.rvtheme.com.develop:${APACHE_CONTAINER_IP}"
+      - "license3.rvglobalsoft.com.develop:${APACHE_CONTAINER_IP}"
+      - "rvsitebuilder.master:${APACHE_CONTAINER_IP}"
+      - "cdn.rvtheme.com.master:${APACHE_CONTAINER_IP}"
+      - "license3.rvglobalsoft.master.develop:${APACHE_CONTAINER_IP}"
     environment:
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
       - DOCKER_HOST=tcp://docker-in-docker:2376
@@ -293,7 +304,9 @@ services:
     depends_on:
       - workspace
     networks:
-      - backend
+      backend:
+      laradocknetwork:
+        ipv4_address: ${PHP_FPM_CONTAINER_IP}
     links:
       - docker-in-docker
 
@@ -438,8 +451,10 @@ services:
     depends_on:
       - php-fpm
     networks:
-      - frontend
-      - backend
+      frontend:
+      backend:
+      laradocknetwork:
+        ipv4_address: ${APACHE_CONTAINER_IP}
 
   ### HHVM #################################################
   hhvm:
