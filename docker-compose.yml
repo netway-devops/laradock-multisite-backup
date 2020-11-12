@@ -839,14 +839,29 @@ services:
 
   ### phpMyAdmin ###########################################
   phpmyadmin:
+    image: "nazarpc/phpmyadmin"
+    ports:
+      - "${PMA_PORT}:80"
+    environment:
+      - TZ=Asia/Bangkok
+      #- ALLOW_ARBITRARY=1
+      - UPLOAD_SIZE=16G
+      - MYSQL_HOST=mysql;root;root,mariadb;root;root
+    depends_on:
+      - "${PMA_DB_ENGINE}"
+    networks:
+      - frontend
+      - backend
+
+  phpmyadminorig:
     build: ./phpmyadmin
     environment:
-      #- PMA_ARBITRARY=1
-      #- TZ=Asia/Bangkok
+      - PMA_ARBITRARY=1
+      - TZ=Asia/Bangkok
       #- PMA_HOST=mysql
-      #- PMA_USER=${PMA_USER}
+      #- PMA_USER=root
       #- PMA_PASSWORD=${PMA_ROOT_PASSWORD}
-      - MYSQL_USER=${PMA_USER}
+      - MYSQL_USER=root
       - MYSQL_PASSWORD=${PMA_PASSWORD}
       - MYSQL_ROOT_PASSWORD=${PMA_ROOT_PASSWORD}
     ports:
