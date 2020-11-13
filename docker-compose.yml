@@ -168,14 +168,9 @@ services:
       - docker-in-docker:/certs/client
       - ./php-worker/supervisord.d:/etc/supervisord.d
 
-      - "${SB7MASTER_WORKS_PATH_HOST}:${SB7MASTER_APP_CODE_PATH_CONTAINER}"
-      - "${SB7DEVELOP_WORKS_PATH_HOST}:${SB7DEVELOP_APP_CODE_PATH_CONTAINER}"
-
-      - "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms:${SB7MASTER_APP_PATH_CONTAINER}"
-      - "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms:${SB7DEVELOP_APP_PATH_CONTAINER}"
-
-      #- "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7MASTER_PUBLIC_PATH_CONTAINER}"
-      #- "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7DEVELOP_PUBLIC_PATH_CONTAINER}"
+      - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
+      - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
+      - "./dashboard.php:/var/www/html/index.php"
 
     extra_hosts:
       - "dockerhost:${DOCKER_HOST_IP}"
@@ -276,14 +271,9 @@ services:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - docker-in-docker:/certs/client
 
-      - "${SB7MASTER_WORKS_PATH_HOST}:${SB7MASTER_APP_CODE_PATH_CONTAINER}"
-      - "${SB7DEVELOP_WORKS_PATH_HOST}:${SB7DEVELOP_APP_CODE_PATH_CONTAINER}"
-
-      - "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms:${SB7MASTER_APP_PATH_CONTAINER}"
-      - "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms:${SB7DEVELOP_APP_PATH_CONTAINER}"
+      - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
+      - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
       - "./dashboard.php:/var/www/html/index.php"
-      #- "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7MASTER_PUBLIC_PATH_CONTAINER}"
-      #- "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7DEVELOP_PUBLIC_PATH_CONTAINER}"
     expose:
       - "9000"
     extra_hosts:
@@ -437,14 +427,9 @@ services:
 
       - "${APACHE_SSLCERTS_PATH}:${APACHE_SERVER_SSLCERTS}"
 
-      - "${SB7MASTER_WORKS_PATH_HOST}:${SB7MASTER_APP_CODE_PATH_CONTAINER}"
-      - "${SB7DEVELOP_WORKS_PATH_HOST}:${SB7DEVELOP_APP_CODE_PATH_CONTAINER}"
-
-      - "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms:${SB7MASTER_APP_PATH_CONTAINER}"
-      - "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms:${SB7DEVELOP_APP_PATH_CONTAINER}"
-
-      #- "${SB7MASTER_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7MASTER_PUBLIC_PATH_CONTAINER}"
-      #- "${SB7DEVELOP_WORKS_PATH_HOST}/rvsitebuildercms/public:${SB7DEVELOP_PUBLIC_PATH_CONTAINER}"
+      - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
+      - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
+      - "./dashboard.php:/var/www/html/index.php"
     ports:
       - "${APACHE_HOST_HTTP_PORT}:80"
       - "${APACHE_HOST_HTTPS_PORT}:443"
@@ -846,7 +831,7 @@ services:
       - TZ=Asia/Bangkok
       #- ALLOW_ARBITRARY=1
       - UPLOAD_SIZE=16G
-      - MYSQL_HOST=mysql;root;root,mariadb;root;root
+      - MYSQL_HOST=mysql;root;secret,mariadb;root;secret
     depends_on:
       - "${PMA_DB_ENGINE}"
     networks:

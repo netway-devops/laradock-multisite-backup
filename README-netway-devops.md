@@ -6,10 +6,14 @@ git clone https://github.com/netway-devops/laradock-multisite.git
 
 mkdir -p ~/gitworks/space/rvsitebuilder
 cd ~/gitworks/space/rvsitebuilder
+git clone -b master --recurse-submodules https://github.com/netway-devops/rvsitebuilder-space master
 git clone -b develop --recurse-submodules https://github.com/netway-devops/rvsitebuilder-space develop
 
 cd develop
 git submodule foreach "git checkout develop"
+cd ..
+cd master
+git submodule foreach "git checkout master"
 
 cd ~/gitworks/laradock-multisite
 ./local-ssl-certs-gen.sh
