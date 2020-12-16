@@ -170,6 +170,7 @@ services:
 
       - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
       - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
+      - "${SOL_WORKS_PATH_HOST}:${SOL_WORKS_PATH_CONTAINER}"
       - "./dashboard.php:/var/www/html/index.php"
 
     extra_hosts:
@@ -273,6 +274,7 @@ services:
 
       - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
       - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
+      - "${SOL_WORKS_PATH_HOST}:${SOL_WORKS_PATH_CONTAINER}"
       - "./dashboard.php:/var/www/html/index.php"
     expose:
       - "9000"
@@ -283,7 +285,9 @@ services:
       - "license3.rvglobalsoft.com.develop:${APACHE_CONTAINER_IP}"
       - "rvsitebuilder.master:${APACHE_CONTAINER_IP}"
       - "cdn.rvtheme.com.master:${APACHE_CONTAINER_IP}"
-      - "license3.rvglobalsoft.master.develop:${APACHE_CONTAINER_IP}"
+      - "license3.rvglobalsoft.master:${APACHE_CONTAINER_IP}"
+      - "billing.netway.co.th.main:${APACHE_CONTAINER_IP}"
+      - "billing.netway.co.th.develop:${APACHE_CONTAINER_IP}"
     environment:
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
       - DOCKER_HOST=tcp://docker-in-docker:2376
@@ -429,6 +433,7 @@ services:
 
       - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
       - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
+      - "${SOL_WORKS_PATH_HOST}:${SOL_WORKS_PATH_CONTAINER}"
       - "./dashboard.php:/var/www/html/index.php"
     ports:
       - "${APACHE_HOST_HTTP_PORT}:80"
