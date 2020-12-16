@@ -7,10 +7,6 @@ git clone https://github.com/netway-devops/laradock-multisite.git
 mkdir -p ~/gitworks/space/rvsitebuilder
 cd ~/gitworks/space/rvsitebuilder
 git clone -b master --recurse-submodules https://github.com/netway-devops/rvsitebuilder-space master
-git clone -b develop --recurse-submodules https://github.com/netway-devops/rvsitebuilder-space develop
-
-cd develop
-git submodule foreach "git checkout develop"
 cd ..
 cd master
 git submodule foreach "git checkout master"
@@ -18,14 +14,14 @@ git submodule foreach "git checkout master"
 cd ~/gitworks/laradock-multisite
 ./local-ssl-certs-gen.sh
 
-vscode open folder ~/gitworks/space/rvsitebuilder/develop
+vscode open folder ~/gitworks/space/rvsitebuilder/master
 
 vscode open workspace file rvsitebuilder.code-workspace
 
-cd /var/www/rvsitebuildercms/rvsitebuilder.develop
-cp .env.dev .env
+cd /var/www/rvsitebuildercms/rvsitebuilder.master
+cp .env.master .env
 
-composer install
+composer update
 composer app-install-dev
 ~~~
 
