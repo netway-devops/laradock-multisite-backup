@@ -168,9 +168,16 @@ services:
       - docker-in-docker:/certs/client
       - ./php-worker/supervisord.d:/etc/supervisord.d
 
-      - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
-      - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
-      - "${SOL_WORKS_PATH_HOST}:${SOL_WORKS_PATH_CONTAINER}"
+      #SB7
+      - "${SB7_WORKS_PATH_HOST_DEVELOP}:${SB7_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SB7_WORKS_PATH_HOST_DEVELOP}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER_DEVELOP}"
+      - "${SB7_WORKS_PATH_HOST_MASTER}:${SB7_WORKS_PATH_CONTAINER_MASTER}"
+      - "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER_MASTER}"
+
+      #SOL
+      - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
+
       - "./dashboard.php:/var/www/html/index.php"
 
     extra_hosts:
@@ -272,9 +279,16 @@ services:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - docker-in-docker:/certs/client
 
-      - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
-      - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
-      - "${SOL_WORKS_PATH_HOST}:${SOL_WORKS_PATH_CONTAINER}"
+      #SB7
+      - "${SB7_WORKS_PATH_HOST_DEVELOP}:${SB7_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SB7_WORKS_PATH_HOST_DEVELOP}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER_DEVELOP}"
+      - "${SB7_WORKS_PATH_HOST_MASTER}:${SB7_WORKS_PATH_CONTAINER_MASTER}"
+      - "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER_MASTER}"
+
+      #SOL
+      - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
+
       - "./dashboard.php:/var/www/html/index.php"
     expose:
       - "9000"
@@ -431,9 +445,16 @@ services:
 
       - "${APACHE_SSLCERTS_PATH}:${APACHE_SERVER_SSLCERTS}"
 
-      - "${SB7_WORKS_PATH_HOST}:${SB7_WORKS_PATH_CONTAINER}"
-      - "${SB7_WORKS_PATH_HOST}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER}"
-      - "${SOL_WORKS_PATH_HOST}:${SOL_WORKS_PATH_CONTAINER}"
+      #SB7
+      - "${SB7_WORKS_PATH_HOST_DEVELOP}:${SB7_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SB7_WORKS_PATH_HOST_DEVELOP}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER_DEVELOP}"
+      - "${SB7_WORKS_PATH_HOST_MASTER}:${SB7_WORKS_PATH_CONTAINER_MASTER}"
+      - "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_APP_PATH_CONTAINER_MASTER}"
+
+      #SOL
+      - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
+
       - "./dashboard.php:/var/www/html/index.php"
     ports:
       - "${APACHE_HOST_HTTP_PORT}:80"
