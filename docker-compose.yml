@@ -169,9 +169,10 @@ services:
       - ./php-worker/supervisord.d:/etc/supervisord.d
 
       #SB7
-      - "${SB7_WORKS_PATH_HOST_DEVELOP}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
 
-      - "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
+      #- "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
 
       #SOL
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
@@ -279,9 +280,10 @@ services:
       - docker-in-docker:/certs/client
 
       #SB7
-      - "${SB7_WORKS_PATH_HOST_DEVELOP}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
 
-      - "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
+      #- "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
 
       #SOL
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
@@ -300,6 +302,8 @@ services:
       - "license3.rvglobalsoft.master:${APACHE_CONTAINER_IP}"
       - "billing.netway.co.th.main:${APACHE_CONTAINER_IP}"
       - "billing.netway.co.th.develop:${APACHE_CONTAINER_IP}"
+      - "cms.develop:${APACHE_CONTAINER_IP}"
+      - "cms.master:${APACHE_CONTAINER_IP}"
     environment:
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
       - DOCKER_HOST=tcp://docker-in-docker:2376
@@ -444,9 +448,10 @@ services:
       - "${APACHE_SSLCERTS_PATH}:${APACHE_SERVER_SSLCERTS}"
 
       #SB7
-      - "${SB7_WORKS_PATH_HOST_DEVELOP}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
 
-      - "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
+      #- "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
 
       #SOL
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
