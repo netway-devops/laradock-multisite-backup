@@ -163,19 +163,21 @@ services:
         - http_proxy
         - https_proxy
         - no_proxy
+
     volumes:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - docker-in-docker:/certs/client
       - ./php-worker/supervisord.d:/etc/supervisord.d
 
-      #SB7
+      #CMS develop
       - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
       - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
-
-      #- "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
-
-      #SOL
+      #CMS master
+      - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
+      - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
+      #SOL develop
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      #SOL master
       - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
@@ -196,8 +198,10 @@ services:
       - DOCKER_TLS_VERIFY=1
       - DOCKER_TLS_CERTDIR=/certs
       - DOCKER_CERT_PATH=/certs/client
-      - NODE_WEBPACK_PATH:/var/www/rvsitebuildercms/rvsitebuilder.develop
-      - NODE_ENV:development
+      #Netway custom config
+      - NODE_ENV=${NODE_ENV}
+      - NODE_WEBPACK_PATH=${NODE_WEBPACK_PATH}
+      - NODE_PATH=${NODE_PATH}
     networks:
       - frontend
       - backend
@@ -279,16 +283,16 @@ services:
       - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
       - docker-in-docker:/certs/client
 
-      #SB7
+      #CMS develop
       - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
       - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
-
-      #- "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
-
-      #SOL
+      #CMS master
+      - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
+      - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
+      #SOL develop
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      #SOL master
       - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
-
       - "./dashboard.php:/var/www/html/index.php"
     expose:
       - "9000"
@@ -447,16 +451,16 @@ services:
 
       - "${APACHE_SSLCERTS_PATH}:${APACHE_SERVER_SSLCERTS}"
 
-      #SB7
+      #CMS develop
       - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
       - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
-
-      #- "${SB7_WORKS_PATH_HOST_MASTER}/rvsitebuildercms:${SB7_WORKS_PATH_CONTAINER_MASTER}"
-
-      #SOL
+      #CMS master
+      - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
+      - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
+      #SOL develop
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      #SOL master
       - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
-
       - "./dashboard.php:/var/www/html/index.php"
     ports:
       - "${APACHE_HOST_HTTP_PORT}:80"
