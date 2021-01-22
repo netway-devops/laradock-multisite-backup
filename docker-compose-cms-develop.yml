@@ -172,13 +172,6 @@ services:
       #CMS develop
       - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
       #- "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
-      #CMS master
-      - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
-      - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
-      #SOL develop
-      - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
-      #SOL master
-      - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -286,13 +279,7 @@ services:
       #CMS develop
       - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
       # - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
-      #CMS master
-      - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
-      - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
-      #SOL develop
-      - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
-      #SOL master
-      - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
+
       - "./dashboard.php:/var/www/html/index.php"
     expose:
       - "9000"
@@ -304,7 +291,7 @@ services:
       - "rvsitebuilder.master:${APACHE_CONTAINER_IP}"
       - "cdn.rvtheme.com.master:${APACHE_CONTAINER_IP}"
       - "license3.rvglobalsoft.master:${APACHE_CONTAINER_IP}"
-      - "billing.netway.co.th.main:${APACHE_CONTAINER_IP}"
+      - "billing.netway.co.th.master:${APACHE_CONTAINER_IP}"
       - "billing.netway.co.th.develop:${APACHE_CONTAINER_IP}"
       - "cms.develop:${APACHE_CONTAINER_IP}"
       - "cms.master:${APACHE_CONTAINER_IP}"
@@ -454,13 +441,7 @@ services:
       #CMS develop
       - "${CMS_WORKS_PATH_HOST_DEVELOP}:${CMS_WORKS_PATH_CONTAINER_DEVELOP}"
       # - "${CMS_WORKSPACE_PATH_HOST_DEVELOP}:${CMS_WORKSPACE_PATH_CONTAINER_DEVELOP}"
-      #CMS master
-      - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
-      - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
-      #SOL develop
-      - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
-      #SOL master
-      - "${SOL_WORKS_PATH_HOST_MASTER}:${SOL_WORKS_PATH_CONTAINER_MASTER}"
+
       - "./dashboard.php:/var/www/html/index.php"
     ports:
       - "${APACHE_HOST_HTTP_PORT}:80"
