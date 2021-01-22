@@ -1517,16 +1517,5 @@ RUN apt-get clean && \
 WORKDIR /var/www
 
 RUN mkdir /var/www/domains
-# RUN mkdir /var/www/domains/sb7master
-# RUN mkdir /var/www/domains/sb7develop
 
-#RUN mkdir -p /var/www/rvsitebuilder/master/rvsitebuildercms
-#RUN mkdir -p /var/www/rvsitebuilder/develop/rvsitebuildercms
-
-#RUN mkdir -p /var/www/rvsitebuildercms/rvsitebuilder.master
-#RUN mkdir -p /var/www/rvsitebuildercms/rvsitebuilder.develop
-
-# RUN mkdir -p /var/www/rvsitebuildercms
-
-#RUN chmod 755 /var/www
 RUN chown -R ${PUID}:${PGID} /var/www

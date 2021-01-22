@@ -33,17 +33,7 @@ RUN if [ ${APACHE_INSTALL_HTTP2} = true ]; then \
     ;fi
 
 RUN mkdir /var/www/domains
-# RUN mkdir /var/www/domains/sb7master
-# RUN mkdir /var/www/domains/sb7develop
 
-#RUN mkdir -p /var/www/rvsitebuilder/master/rvsitebuildercms
-#RUN mkdir -p /var/www/rvsitebuilder/develop/rvsitebuildercms
-
-# RUN mkdir -p /var/www/rvsitebuildercms/rvsitebuilder.master
-# RUN mkdir -p /var/www/rvsitebuildercms/rvsitebuilder.develop
-
-#RUN chmod 755 /var/www
-#RUN chown -R ${WEB_UID}:${WEB_GID} /var/www
 
 ENTRYPOINT ["/opt/docker/bin/entrypoint.sh"]
 
