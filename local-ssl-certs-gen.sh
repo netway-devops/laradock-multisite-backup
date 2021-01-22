@@ -13,9 +13,9 @@ declare -a arr=("foo.test"
                 "cdn.rvtheme.com.develop"
                 "license3.rvglobalsoft.com.master"
                 "license3.rvglobalsoft.com.develop"
-                "netway.co.th.main"
+                "netway.co.th.master"
                 "netway.co.th.develop"
-                "billing.netway.co.th.main"
+                "billing.netway.co.th.master"
                 "billing.netway.co.th.develop"
                 )
 
