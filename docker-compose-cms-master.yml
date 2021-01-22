@@ -171,7 +171,6 @@ services:
 
       #CMS master
       - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
-      #- "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -278,7 +277,6 @@ services:
 
       #CMS master
       - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
-      # - "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
     expose:
@@ -440,7 +438,6 @@ services:
 
       #CMS master
       - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
-      #- "${CMS_WORKSPACE_PATH_HOST_MASTER}:${CMS_WORKSPACE_PATH_CONTAINER_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
     ports:
