@@ -1519,3 +1519,7 @@ WORKDIR /var/www
 RUN mkdir /var/www/domains
 
 RUN chown -R ${PUID}:${PGID} /var/www
+
+RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/master
+RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/develop
+RUN ln -s /var/www/domains/solutiondevelop /var/www/domains/develop

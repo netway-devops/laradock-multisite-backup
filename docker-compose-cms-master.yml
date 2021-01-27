@@ -171,6 +171,7 @@ services:
 
       #CMS master
       - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
+      - "${CMS_HOST_GITMODULE_CONFIG_MASTER}:${CMS_CONTAINER_GITMODULE_CONFIG_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -277,6 +278,7 @@ services:
 
       #CMS master
       - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
+      - "${CMS_HOST_GITMODULE_CONFIG_MASTER}:${CMS_CONTAINER_GITMODULE_CONFIG_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
     expose:
@@ -438,6 +440,7 @@ services:
 
       #CMS master
       - "${CMS_WORKS_PATH_HOST_MASTER}:${CMS_WORKS_PATH_CONTAINER_MASTER}"
+      - "${CMS_HOST_GITMODULE_CONFIG_MASTER}:${CMS_CONTAINER_GITMODULE_CONFIG_MASTER}"
 
       - "./dashboard.php:/var/www/html/index.php"
     ports:

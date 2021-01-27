@@ -171,6 +171,7 @@ services:
 
       #SOL develop
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SOL_HOST_GITMODULE_CONFIG_DEVELOP}:${SOL_CONTAINER_GITMODULE_CONFIG_DEVELOP}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -273,6 +274,7 @@ services:
 
       #SOL develop
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SOL_HOST_GITMODULE_CONFIG_DEVELOP}:${SOL_CONTAINER_GITMODULE_CONFIG_DEVELOP}"
 
       - "./dashboard.php:/var/www/html/index.php"
     expose:
@@ -434,6 +436,7 @@ services:
 
       #SOL develop
       - "${SOL_WORKS_PATH_HOST_DEVELOP}:${SOL_WORKS_PATH_CONTAINER_DEVELOP}"
+      - "${SOL_HOST_GITMODULE_CONFIG_DEVELOP}:${SOL_CONTAINER_GITMODULE_CONFIG_DEVELOP}"
 
       - "./dashboard.php:/var/www/html/index.php"
     ports:
