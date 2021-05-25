@@ -1522,7 +1522,7 @@ RUN mkdir /var/www/domains
 RUN chown -R ${PUID}:${PGID} /var/www
 
 #Netway custom config
-RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/master
+RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/main
 RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/develop
 RUN ln -s /var/www/domains/solutiondevelop /var/www/domains/develop
 RUN export PHP_INI_SCAN_DIR=/etc/php/7.4/cli/conf.d
