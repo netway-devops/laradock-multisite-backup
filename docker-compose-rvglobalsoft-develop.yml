@@ -281,16 +281,14 @@ services:
       - "9000"
     extra_hosts:
       - "dockerhost:${DOCKER_HOST_IP}"
-      - "rvsitebuilder.develop:${APACHE_CONTAINER_IP}"
       - "cdn.rvtheme.com.develop:${APACHE_CONTAINER_IP}"
       - "license3.rvglobalsoft.com.develop:${APACHE_CONTAINER_IP}"
-      - "rvsitebuilder.master:${APACHE_CONTAINER_IP}"
-      - "cdn.rvtheme.com.master:${APACHE_CONTAINER_IP}"
-      - "license3.rvglobalsoft.master:${APACHE_CONTAINER_IP}"
-      - "billing.netway.co.th.master:${APACHE_CONTAINER_IP}"
+      - "cdn.rvtheme.com.main:${APACHE_CONTAINER_IP}"
+      - "license3.rvglobalsoft.main:${APACHE_CONTAINER_IP}"
+      - "billing.netway.co.th.main:${APACHE_CONTAINER_IP}"
       - "billing.netway.co.th.develop:${APACHE_CONTAINER_IP}"
       - "cms.develop:${APACHE_CONTAINER_IP}"
-      - "cms.master:${APACHE_CONTAINER_IP}"
+      - "cms.main:${APACHE_CONTAINER_IP}"
     environment:
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
       - DOCKER_HOST=tcp://docker-in-docker:2376

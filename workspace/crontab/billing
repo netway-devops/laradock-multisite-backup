@@ -1,2 +1,2 @@
-* * * * * laradock /usr/bin/php /var/www/domains/solutiondevelop/billing.netway.co.th/public_html/queue.php > /dev/null
-* * * * * laradock /usr/bin/php /var/www/domains/solutiondevelop/billing.netway.co.th/public_html/queue.php -r > /dev/null
+* * * * * laradock /usr/bin/php /var/www/domains/netwaydevelop/billing.netway.co.th/public_html/queue.php > /dev/null
+* * * * * laradock /usr/bin/php /var/www/domains/netwaydevelop/billing.netway.co.th/public_html/queue.php -r > /dev/null
