@@ -1,0 +1,4 @@
+*/5 * * * * /usr/bin/php -q /var/www/domains/rvglobalsoftdevelop/rvglobalsoft.com/public_html/admin/cron.php profile=default > /dev/null
+* * * * * /usr/bin/php -q /var/www/domains/rvglobalsoftdevelop/rvglobalsoft.com/public_html/queue.php > /dev/null
+0 0 1 1 * /usr/bin/php -q /var/www/domains/rvglobalsoftdevelop/rvglobalsoft.com/public_html/cron_reset_transfer_limit.php > /dev/null
+4 4 * * * /usr/bin/find /var/www/domains/rvglobalsoftdevelop/rvglobalsoft.com/public_html/templates_c/*.php -ctime +7 -delete ; /bin/cat /dev/null > /var/www/domains/rvglobalsoftdevelop/rvglobalsoft.com/public_html/templates_c/index.php;
