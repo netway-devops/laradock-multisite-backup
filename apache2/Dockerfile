@@ -29,9 +29,12 @@ RUN if [ ${APACHE_INSTALL_HTTP2} = true ]; then \
     && a2enmod rewrite \
     && a2enmod headers \
     && a2enmod proxy proxy_html proxy_http xml2enc ssl http2 \
-    && a2enmod substitute \
     && service apache2 restart \
     ;fi
+
+#For Netway hostbill ngrok .htaccess
+RUN a2enmod substitute \
+    && service apache2 restart \
 
 RUN mkdir /var/www/domains
 
