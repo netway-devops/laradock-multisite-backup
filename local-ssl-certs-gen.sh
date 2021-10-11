@@ -3,9 +3,7 @@
 
 mkcert -install
 
-declare -a arr=("foo.test"
-                "mailhog.local"
-                "cms.main"
+declare -a arr=("cms.main"
                 "cms.develop"
                 "cdn.rvtheme.com.main"
                 "cdn.rvtheme.com.develop"
@@ -28,10 +26,6 @@ done
 
 echo """
 ==================================================
-  1 Add the following to /etc/hosts file:
-
-  127.0.0.1 foo.test mailhog.local cms.main cms.develop
-
-  2 Testing by open https://foo.test/ and http://foo.test/. It should open without any errors.
+  Successful
 ==================================================
 """
