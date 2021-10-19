@@ -172,6 +172,7 @@ services:
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
       - "${NETWAY_HOST_GITMODULE_CONFIG_MAIN}:${NETWAY_CONTAINER_GITMODULE_CONFIG_MAIN}"
+      - "${NETWAY_HOST_SUBTREE_CONFIG}:${NETWAY_CONTAINER_SUBTREE_CONFIG}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -275,6 +276,7 @@ services:
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
       - "${NETWAY_HOST_GITMODULE_CONFIG_MAIN}:${NETWAY_CONTAINER_GITMODULE_CONFIG_MAIN}"
+      - "${NETWAY_HOST_SUBTREE_CONFIG}:${NETWAY_CONTAINER_SUBTREE_CONFIG}"
 
       - "./dashboard.php:/var/www/html/index.php"
     expose:
@@ -435,6 +437,7 @@ services:
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
       - "${NETWAY_HOST_GITMODULE_CONFIG_MAIN}:${NETWAY_CONTAINER_GITMODULE_CONFIG_MAIN}"
+      - "${NETWAY_HOST_SUBTREE_CONFIG}:${NETWAY_CONTAINER_SUBTREE_CONFIG}"
 
       - "./dashboard.php:/var/www/html/index.php"
     ports:
