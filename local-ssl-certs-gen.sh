@@ -12,7 +12,6 @@ declare -a arr=("cms.main"
                 "netway.co.th.main"
                 "netway.co.th.develop"
                 "billing.netway.co.th.main"
-                "billing.netway.co.th.develop"
                 "rvglobalsoft.com.develop"
                 "rvglobalsoft.com.main"
                 )
