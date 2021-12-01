@@ -171,8 +171,6 @@ services:
 
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
-      - "${NETWAY_SPACE_DIR_HOST_MAIN}:${NETWAY_SPACE_DIR_CONTAINER_MAIN}"
-      - "${NETWAY_SPACE_GIT_DIR_HOST_MAIN}:${NETWAY_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -275,10 +273,9 @@ services:
 
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
-      - "${NETWAY_SPACE_DIR_HOST_MAIN}:${NETWAY_SPACE_DIR_CONTAINER_MAIN}"
-      - "${NETWAY_SPACE_GIT_DIR_HOST_MAIN}:${NETWAY_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
+
     expose:
       - "9000"
     extra_hosts:
@@ -436,10 +433,9 @@ services:
 
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
-      - "${NETWAY_SPACE_DIR_HOST_MAIN}:${NETWAY_SPACE_DIR_CONTAINER_MAIN}"
-      - "${NETWAY_SPACE_GIT_DIR_HOST_MAIN}:${NETWAY_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
+
     ports:
       - "${APACHE_HOST_HTTP_PORT}:80"
       - "${APACHE_HOST_HTTPS_PORT}:443"

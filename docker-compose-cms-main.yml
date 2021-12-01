@@ -171,8 +171,6 @@ services:
 
       #CMS main
       - "${CMS_WORKS_PATH_HOST_MAIN}:${CMS_WORKS_PATH_CONTAINER_MAIN}"
-      - "${CMS_SPACE_DIR_HOST_MAIN}:${CMS_SPACE_DIR_CONTAINER_MAIN}"
-      - "${CMS_SPACE_GIT_DIR_HOST_MAIN}:${CMS_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -279,8 +277,6 @@ services:
 
       #CMS main
       - "${CMS_WORKS_PATH_HOST_MAIN}:${CMS_WORKS_PATH_CONTAINER_MAIN}"
-      - "${CMS_SPACE_DIR_HOST_MAIN}:${CMS_SPACE_DIR_CONTAINER_MAIN}"
-      - "${CMS_SPACE_GIT_DIR_HOST_MAIN}:${CMS_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
     expose:
@@ -440,8 +436,6 @@ services:
 
       #CMS main
       - "${CMS_WORKS_PATH_HOST_MAIN}:${CMS_WORKS_PATH_CONTAINER_MAIN}"
-      - "${CMS_SPACE_DIR_HOST_MAIN}:${CMS_SPACE_DIR_CONTAINER_MAIN}"
-      - "${CMS_SPACE_GIT_DIR_HOST_MAIN}:${CMS_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
     ports:
