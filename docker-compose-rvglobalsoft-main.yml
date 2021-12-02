@@ -171,8 +171,6 @@ services:
 
       #RVG main
       - "${RVG_WORKS_PATH_HOST_MAIN}:${RVG_WORKS_PATH_CONTAINER_MAIN}"
-      - "${RVG_SPACE_DIR_HOST_MAIN}:${RVG_SPACE_DIR_CONTAINER_MAIN}"
-      - "${RVG_SPACE_GIT_DIR_HOST_MAIN}:${RVG_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
@@ -275,8 +273,6 @@ services:
 
       #RVG main
       - "${RVG_WORKS_PATH_HOST_MAIN}:${RVG_WORKS_PATH_CONTAINER_MAIN}"
-      - "${RVG_SPACE_DIR_HOST_MAIN}:${RVG_SPACE_DIR_CONTAINER_MAIN}"
-      - "${RVG_SPACE_GIT_DIR_HOST_MAIN}:${RVG_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
     expose:
@@ -436,8 +432,6 @@ services:
 
       #RVG main
       - "${RVG_WORKS_PATH_HOST_MAIN}:${RVG_WORKS_PATH_CONTAINER_MAIN}"
-      - "${RVG_SPACE_DIR_HOST_MAIN}:${RVG_SPACE_DIR_CONTAINER_MAIN}"
-      - "${RVG_SPACE_GIT_DIR_HOST_MAIN}:${RVG_SPACE_GIT_DIR_CONTAINER_MAIN}"
 
       - "./dashboard.php:/var/www/html/index.php"
     ports:
