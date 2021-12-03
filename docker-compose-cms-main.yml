@@ -171,6 +171,7 @@ services:
 
       #CMS main
       - "${CMS_WORKS_PATH_HOST_MAIN}:${CMS_WORKS_PATH_CONTAINER_MAIN}"
+      - "${CMS_WORKS_PATH_HOST_BASH_HISTORY}:${CMS_WORKS_PATH_CONTAINER_BASH_HISTORY}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
