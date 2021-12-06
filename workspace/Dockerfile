@@ -1521,11 +1521,16 @@ RUN mkdir /var/www/domains
 
 RUN chown -R ${PUID}:${PGID} /var/www
 
-#Netway custom config
-# RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/main
-# RUN ln -s /home/laradock/rvsitebuildercms /home/laradock/develop
-# RUN ln -s /var/www/domains/netwaydevelop /var/www/domains/develop
-# RUN ln -s /var/www/domains/netwaymain /var/www/domains/main
-# RUN ln -s /var/www/domains/rvglobalsoftdevelop /var/www/domains/develop
-# RUN ln -s /var/www/domains/rvglobalsoftmain /var/www/domains/main
 RUN export PHP_INI_SCAN_DIR=/etc/php/7.4/cli/conf.d
+
+
+###########################################################################
+# Netway Custom
+###########################################################################
+
+# bash command history across session
+ARG USERNAME=laradock
+RUN mkdir /home/$USERNAME/commandhistory
+RUN touch /home/$USERNAME/commandhistory/.bash_history
+RUN chown -R $USERNAME:$USERNAME /home/$USERNAME/commandhistory
+RUN echo "export PROMPT_COMMAND='history -a' && export HISTFILE=/home/$USERNAME/commandhistory/.bash_history" >> /home/$USERNAME/.bashrc

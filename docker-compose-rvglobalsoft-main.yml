@@ -171,6 +171,7 @@ services:
 
       #RVG main
       - "${RVG_WORKS_PATH_HOST_MAIN}:${RVG_WORKS_PATH_CONTAINER_MAIN}"
+      - "${RVG_WORKS_PATH_HOST_BASH_HISTORY}:${RVG_WORKS_PATH_CONTAINER_BASH_HISTORY}"
 
       - "./dashboard.php:/var/www/html/index.php"
 
