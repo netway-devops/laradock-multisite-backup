@@ -177,6 +177,7 @@ services:
 
     extra_hosts:
       - "dockerhost:${DOCKER_HOST_IP}"
+      - "cms.main:${APACHE_CONTAINER_IP}"
     ports:
       - "${WORKSPACE_SSH_PORT}:22"
       - "${WORKSPACE_BROWSERSYNC_HOST_PORT}:3000"
@@ -196,8 +197,10 @@ services:
       - NODE_WEBPACK_PATH=${NODE_WEBPACK_PATH}
       - NODE_PATH=${NODE_PATH}
     networks:
-      - frontend
-      - backend
+      frontend:
+      backend:
+      laradocknetwork:
+        ipv4_address: ${WORKSPACE_CONTAINER_IP}
     links:
       - docker-in-docker
 
@@ -292,6 +295,7 @@ services:
       - "billing.netway.co.th.develop:${APACHE_CONTAINER_IP}"
       - "cms.develop:${APACHE_CONTAINER_IP}"
       - "cms.main:${APACHE_CONTAINER_IP}"
+      - "rvglobalsoft.com.main:${APACHE_CONTAINER_IP}"
     environment:
       - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
       - DOCKER_HOST=tcp://docker-in-docker:2376
@@ -496,7 +500,9 @@ services:
     ports:
       - "${MYSQL_PORT}:3306"
     networks:
-      - backend
+      backend:
+      laradocknetwork:
+        ipv4_address: ${MYSQL_CONTAINER_IP}
 
   ### Percona ################################################
   percona:
