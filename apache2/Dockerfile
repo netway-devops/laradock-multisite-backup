@@ -32,13 +32,18 @@ RUN if [ ${APACHE_INSTALL_HTTP2} = true ]; then \
     && service apache2 restart \
     ;fi
 
-#For Netway hostbill ngrok .htaccess
-RUN a2enmod substitute \
-    && service apache2 restart \
-
-RUN mkdir /var/www/domains
-
-
 ENTRYPOINT ["/opt/docker/bin/entrypoint.sh"]
 
 CMD ["supervisord"]
+
+
+###########################################################################
+# Netway Custom
+###########################################################################
+
+#make dir
+RUN mkdir /var/www/domains
+
+#for Netway hostbill ngrok .htaccess
+RUN a2enmod substitute \
+    && service apache2 restart \
