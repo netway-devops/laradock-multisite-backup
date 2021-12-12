@@ -172,6 +172,7 @@ services:
       #CMS main
       - "${CMS_WORKS_PATH_HOST_MAIN}:${CMS_WORKS_PATH_CONTAINER_MAIN}"
       - "${CMS_WORKS_PATH_HOST_BASH_HISTORY}:${CMS_WORKS_PATH_CONTAINER_BASH_HISTORY}"
+      - "${CMS_HOST_VSCODE_EXTENSIONS}:${CMS_CONTAINER_VSCODE_EXTENSIONS}"
 
       - "./dashboard.php:/var/www/html/index.php"
 

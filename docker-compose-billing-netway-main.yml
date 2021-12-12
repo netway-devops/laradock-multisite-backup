@@ -172,6 +172,7 @@ services:
       #billing.netway.co.th main
       - "${NETWAY_WORKS_PATH_HOST_MAIN}:${NETWAY_WORKS_PATH_CONTAINER_MAIN}"
       - "${NETWAY_WORKS_PATH_HOST_BASH_HISTORY}:${NETWAY_WORKS_PATH_CONTAINER_BASH_HISTORY}"
+      - "${NETWAY_HOST_VSCODE_EXTENSIONS}:${NETWAY_CONTAINER_VSCODE_EXTENSIONS}"
 
 
       - "./dashboard.php:/var/www/html/index.php"

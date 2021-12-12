@@ -976,10 +976,15 @@ ENV LC_ALL ${LOCALE}
 
 WORKDIR /var/www
 
-RUN mkdir /var/www/domains
-
 RUN chown -R ${PUID}:${PGID} /var/www
 
 CMD ["php-fpm"]
 
 EXPOSE 9000
+
+###########################################################################
+# Netway Custom
+###########################################################################
+
+#make dir
+RUN mkdir /var/www/domains

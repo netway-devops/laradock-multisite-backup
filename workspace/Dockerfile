@@ -1517,8 +1517,6 @@ RUN apt-get clean && \
 # Set default work directory
 WORKDIR /var/www
 
-RUN mkdir /var/www/domains
-
 RUN chown -R ${PUID}:${PGID} /var/www
 
 RUN export PHP_INI_SCAN_DIR=/etc/php/7.4/cli/conf.d
@@ -1528,9 +1526,17 @@ RUN export PHP_INI_SCAN_DIR=/etc/php/7.4/cli/conf.d
 # Netway Custom
 ###########################################################################
 
-# bash command history across session
+#make dir
+RUN mkdir /var/www/domains
+
+#bash command history across session
 ARG USERNAME=laradock
 RUN mkdir /home/$USERNAME/commandhistory
 RUN touch /home/$USERNAME/commandhistory/.bash_history
 RUN chown -R $USERNAME:$USERNAME /home/$USERNAME/commandhistory
 RUN echo "export PROMPT_COMMAND='history -a' && export HISTFILE=/home/$USERNAME/commandhistory/.bash_history" >> /home/$USERNAME/.bashrc
+
+#map path /home/test1/.vscode/extensions:/home/laradock/.vscode-server/extensions
+ARG USERNAME=laradock
+RUN mkdir -p /home/$USERNAME/.vscode-server/extensions
+RUN chown -R $USERNAME /home/$USERNAME/.vscode-server
